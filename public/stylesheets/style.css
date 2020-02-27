@@ -1,0 +1,87 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+i {
+  cursor: pointer;
+}
+
+i:hover {
+  color: blue;
+}
+
+.search-form {
+  width: 25%;
+  font-size: 18px;
+}
+
+.table-title {
+  margin-top: 20px;
+}
+
+.table-title thead tr td {
+  padding-bottom: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.table-title thead tr td {
+  font-weight: bold;
+}
+
+#item-list tr td {
+  padding: 3px 18px 3px 18px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: #c1c1c1;
+}
+
+.td1 { width: 10%; }
+.td2 { width: 30%; }
+.td3 { width: 25%; }
+.td4 { width: 25%; }
+.td5 { width: 10%; }
+
+.d-flex {
+  vertical-align: middle;
+  display: flex;
+}
+
+.d-flex i {
+  font-size: 18px !important;
+  padding-left: 8px;
+}
+
+.no-pdl tr td {
+  padding-left: 0 !important;
+}
+
+.savebtn,.cclbtn {
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.savebtn:hover {
+  color: white;
+  background-color: green; 
+}
+
+.cclbtn:hover {
+  color: white;
+  background-color: red;
+}
