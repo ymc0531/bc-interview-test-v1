@@ -12,7 +12,7 @@ async function getItem (uid) {
     $('.table-title').attr('data-id', result[0].id);
     $('#item-list').append(`
       <tr>
-        <td class="td2"><input id="ibarcode" type='number' value='${result[0].barcode}'></td>
+        <td class="td2"><input id="ibarcode" type='number' value='${result[0].barcode}' min="0"></td>
         <td class="td3"><input id="ibrand" value='${result[0].brand}'></td>
         <td class="td4"><input id="ipname" value='${result[0].product_name}'></td>
         <td class="td5">
@@ -60,6 +60,9 @@ async function editItemAjax(data) {
       type: 'PUT',
       data: data,
       statusCode: {
+        400: function() {
+          alert( "brand/product name cannot be empty." );
+        },
         404: function() {
           alert( "Data is not correct." );
         },

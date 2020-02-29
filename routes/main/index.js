@@ -14,7 +14,7 @@ router.get('/edit/:id', async function(req, res) {
 });
 
 router.get('/items', async function(req, res) {
-  sql.query("SELECT * FROM items ORDER BY barcode ASC", function (error, result) {
+  sql.query("SELECT * FROM items ORDER BY product_name ASC", function (error, result) {
     if (error) {
       console.log("error: ", error);
       res.sendStatus(404);
@@ -40,15 +40,21 @@ router.post('/item', async function(req, res) {
 
 router.put('/item', async function(req, res) {
   let {id, barcode, brand, pname} = req.body;
-  sql.query(`UPDATE items SET barcode = '${barcode}', brand = '${brand}', product_name = '${pname}' WHERE id = '${id}'`, function (error, result) {
-    if (error) {
-      console.log("error: ", error);
-      res.sendStatus(404);
-    }
-    if (result) {
-      res.sendStatus(200);
-    }
-  });
+  brand = brand.replace(' ', '');
+  pname = pname.replace(' ', '');
+  if(brand == '' || pname == '') {
+    res.sendStatus(400);
+  }else{
+    sql.query(`UPDATE items SET barcode = '${barcode}', brand = '${brand}', product_name = '${pname}' WHERE id = '${id}'`, function (error, result) {
+      if (error) {
+        console.log("error: ", error);
+        res.sendStatus(404);
+      }
+      if (result) {
+        res.sendStatus(200);
+      }
+    });
+  }
 });
 
 
